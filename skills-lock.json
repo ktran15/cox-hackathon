@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "design-taste": {
+      "source": "h3nryprod01/design-taste",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "51c8df7ca66aa94712e51921489e46e59b586801030104806f5c51c70a8f7733"
+    }
+  }
+}
