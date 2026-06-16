@@ -9,7 +9,9 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+import { StyleSheet, View } from 'react-native';
 
+import { BadgeCelebrationHost } from '@/src/ui/components';
 import { TextSizeProvider } from '@/src/ui/theme/TextSizeProvider';
 import { fontFamily } from '@/src/ui/theme/typography';
 import { color } from '@/src/ui/theme/tokens';
@@ -67,21 +69,32 @@ export default function RootLayout() {
   return (
     <TextSizeProvider>
       <ThemeProvider value={appTheme}>
-        <Stack
-          screenOptions={{
-            contentStyle: { backgroundColor: color.paper },
-            headerTintColor: color.ink,
-            headerTitleStyle: { fontFamily: fontFamily.display, color: color.ink },
-            headerStyle: { backgroundColor: color.paper },
-            headerShadowVisible: false,
-          }}
-        >
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="result" options={{ title: 'Your garment' }} />
-          <Stack.Screen name="route/[type]" options={{ title: 'Almost there' }} />
-          <Stack.Screen name="dev-components" options={{ title: 'Design system' }} />
-        </Stack>
+        <View style={styles.root}>
+          <Stack
+            screenOptions={{
+              contentStyle: { backgroundColor: color.paper },
+              headerTintColor: color.ink,
+              headerTitleStyle: { fontFamily: fontFamily.display, color: color.ink },
+              headerStyle: { backgroundColor: color.paper },
+              headerShadowVisible: false,
+            }}
+          >
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="result" options={{ title: 'Your garment' }} />
+            <Stack.Screen name="route/[type]" options={{ title: 'Almost there' }} />
+            <Stack.Screen name="garment/[id]" options={{ title: 'Garment' }} />
+            <Stack.Screen name="badges" options={{ title: 'Badges' }} />
+            <Stack.Screen name="settings" options={{ title: 'Settings' }} />
+            <Stack.Screen name="dev-components" options={{ title: 'Design system' }} />
+          </Stack>
+          {/* Global: a badge earned anywhere triggers confetti + a toast (7.9). */}
+          <BadgeCelebrationHost />
+        </View>
       </ThemeProvider>
     </TextSizeProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  root: { flex: 1 },
+});

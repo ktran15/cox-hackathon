@@ -1,3 +1,5 @@
+export { BadgeCelebrationHost } from './BadgeCelebrationHost';
+export { BadgeTile, type BadgeTileProps } from './BadgeTile';
 export { Button, type ButtonProps, type ButtonVariant } from './Button';
 export { Card, type CardProps } from './Card';
 export { Celebration, type CelebrationProps } from './Celebration';
