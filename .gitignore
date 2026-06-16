@@ -30,7 +30,9 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
+# local env files (never commit secrets like EXPO_PUBLIC_CLAUDE_API_KEY)
+.env
+.env.*
 .env*.local
 
 # typescript
