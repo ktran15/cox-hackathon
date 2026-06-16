@@ -34,6 +34,8 @@ yarn-error.*
 .env
 .env.*
 .env*.local
+# ...but DO ship the template so cloners know what to set
+!.env.example
 
 # typescript
 *.tsbuildinfo
